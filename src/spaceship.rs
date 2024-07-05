@@ -69,11 +69,11 @@ fn spaceship_movement_controls(
         // };
 
 
-        if matches!(directional_bank(keyboard_input.clone()).unwrap_or_default(), LeftBank) && transform.rotation.z > -0.25 {
-            roll = -SPACESHIP_ROLL_SPEED * time.delta_seconds();
+        if matches!(directional_bank(keyboard_input.clone()).unwrap_or_default(), LeftBank) && transform.rotation.z > -0.5 {
+            roll = (-SPACESHIP_ROLL_SPEED *0.5) * time.delta_seconds();
             info!("x is {:?}", transform.rotation.x);
-        } else if matches!(directional_bank(keyboard_input.clone()).unwrap_or_default(), RightBank) && transform.rotation.z < 0.25 {
-            roll = SPACESHIP_ROLL_SPEED * time.delta_seconds();
+        } else if matches!(directional_bank(keyboard_input.clone()).unwrap_or_default(), RightBank) && transform.rotation.z < 0.5 {
+            roll = (SPACESHIP_ROLL_SPEED *0.5) * time.delta_seconds();
             // info!("z is {:?}", transform.rotation.z);
         
         } else if keyboard_input.pressed(KeyCode::ShiftLeft) && transform.rotation.z > -0.5 {
