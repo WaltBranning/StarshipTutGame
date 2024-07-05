@@ -46,9 +46,6 @@ fn spaceship_movement_controls(
         let mut roll = 0.0;
         let mut movement = 0.0;
             
-        let banking = directional_bank(keyboard_input.clone()).unwrap_or(Forward);
-        // info!("{:?}", banking);
-
         if keyboard_input.pressed(KeyCode::KeyS) {
             movement = -SPACESHIP_SPEED;
         } else if keyboard_input.pressed(KeyCode::KeyW) {
@@ -60,14 +57,6 @@ fn spaceship_movement_controls(
         } else if keyboard_input.pressed(KeyCode::KeyA) {
             rotation = SPACESHIP_ROTATION_SPEED * time.delta_seconds();
         }
-
-        // let roll = match directional_bank(keyboard_input.clone()).unwrap_or_default() {
-        //     RightBank if transform.rotation.z < 0.5 => SPACESHIP_ROLL_SPEED * time.delta_seconds(),
-        //     LeftBanK if transform.rotation.z > -0.5 => SPACESHIP_ROLL_SPEED * time.delta_seconds(),
-        //     _ => {roll}
-            
-        // };
-
 
         if matches!(directional_bank(keyboard_input.clone()).unwrap_or_default(), LeftBank) && transform.rotation.z > -0.5 {
             roll = (-SPACESHIP_ROLL_SPEED *0.5) * time.delta_seconds();
