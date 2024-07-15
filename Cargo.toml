@@ -9,6 +9,7 @@ rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
 [dependencies]
 bevy = { version = "0.13.2", features = ["dynamic_linking"] }
+bevy_scroller = "0.3.0"
 rand = "0.8.5"
 
 [profile.dev]

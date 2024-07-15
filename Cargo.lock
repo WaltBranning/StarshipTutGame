@@ -856,6 +856,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_scroller"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f233d84b7c25fd7636796d10bb87a256ccb66a1968f2f638e0b3132d216da0a2"
+dependencies = [
+ "bevy",
+ "rand",
+]
+
+[[package]]
 name = "bevy_sprite"
 version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3054,6 +3064,7 @@ name = "spaceship_game"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_scroller",
  "rand",
 ]
 

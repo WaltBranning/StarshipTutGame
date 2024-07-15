@@ -15,6 +15,28 @@ fn spawn_camera(mut commands: Commands) {
         exposure: Exposure {
             ev100: Exposure::EV100_INDOOR,
         },
+        camera: Camera {
+            order: 0,
+            ..default()
+        },
+        ..default()
+    });
+}
+
+pub struct CameraPlugin2d;
+impl Plugin for CameraPlugin2d {
+    fn build(&self, app: &mut App) {
+        app.add_systems(Startup, spawn_2d_camera);
+    }
+}
+
+fn spawn_2d_camera(mut commands: Commands) {
+    commands.spawn(Camera2dBundle {
+        transform: Transform::from_xyz(0.0, CAMERA_DISTANCE, 0.0),
+        camera: Camera {
+            order: 1,
+            ..default()
+        },
         ..default()
     });
 }
